@@ -55,7 +55,10 @@ app.get("/weather", (req, res) => {
         forecast(
           latitude,
           longitude,
-          (error, { summary, temperature, precipProbability } = {}) => {
+          (
+            error,
+            { summary, temperature, precipProbability, tempHigh } = {}
+          ) => {
             if (error) {
               return res.send({ error });
             } else {
@@ -63,7 +66,8 @@ app.get("/weather", (req, res) => {
                 location,
                 summary,
                 temperature: `Температурата е ${temperature}`,
-                precipProbability: `Шансът за дъждове е ${precipProbability}%`
+                precipProbability: `Шансът за дъждове е ${precipProbability}%`,
+                tempHigh
               });
             }
           }

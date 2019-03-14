@@ -17,7 +17,7 @@ weatherForm.addEventListener("submit", e => {
           data.summary
         } Температура: ${data.temperature} Шансове за валежи: ${
           data.precipProbability
-        }`;
+        } Максимална температура: ${data.tempHigh}`;
       }
     });
   });

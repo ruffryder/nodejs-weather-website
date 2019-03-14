@@ -15,12 +15,14 @@ const forecast = (latitude, longitude, callback) => {
         callback("Unable to find location", undefined);
       } else {
         const summary = body.daily.data[0].summary;
+        const tempHigh = body.daily.data[0].temperatureHigh;
         const precipProbability = body.currently.precipProbability;
         const temperature = body.currently.temperature;
         callback(undefined, {
-          summary: summary,
-          temperature: temperature,
-          precipProbability: precipProbability
+          summary,
+          temperature,
+          precipProbability,
+          tempHigh
         });
       }
     }
