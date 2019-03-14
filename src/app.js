@@ -1,9 +1,11 @@
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
-const app = express();
 const geoCode = require("./utils/geoCode");
 const forecast = require("./utils/forecast");
+
+const app = express();
+const port = process.env.PORT || 3001;
 
 //Define paths for Express config
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -85,6 +87,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3001, () => {
+app.listen(port, () => {
   console.log("Server is now running");
 });
